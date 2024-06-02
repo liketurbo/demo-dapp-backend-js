@@ -15,7 +15,7 @@ import { DOMAIN, PAYLOAD_TTL, PROOF_TTL, SHARED_SECRET } from "../constants";
 
 export const router = express.Router();
 
-router.post("/generatePayload", (_, res: Response<GenerateTonProofPayload>) => {
+router.post("/generate-payload", (_, res: Response<GenerateTonProofPayload>) => {
   // ```
   // 0             8                 16               48
   // | random bits | expiration time | sha2 signature |
@@ -41,7 +41,7 @@ router.post("/generatePayload", (_, res: Response<GenerateTonProofPayload>) => {
 });
 
 router.post(
-  "/checkProof",
+  "/check-proof",
   async (
     req: Request<{}, {}, CheckProofPayload>,
     res: Response<CheckTonProof>

@@ -1,10 +1,11 @@
 import express from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
+
 import { SHARED_SECRET } from "../constants";
 
 export const router = express.Router();
 
-router.get("/getAccountInfo", async (req, res) => {
+router.get("/get-account-info", async (req, res) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
     res.status(401).json({ error: "authorization header is missing" });
